@@ -24,7 +24,7 @@ the corresponding line as follows: %%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n"
 
     printf "0. [Setup spinning HD] Create ext4 partition using gparted.\n \
     Get UUID of the spinning drive using sudo blkid.\n \
-    Create the mount point: mkdir /storage\n \
+    Create the mount point: mkdir /storage && sudo chown -R tunc:tunc /storage\n \
     Add UUID=<uuid>	/storage	ext4	defaults	0	2\n" 
 
     printf "1. [Install required tools] ./${SCRIPT_NAME} required\n"
@@ -39,6 +39,8 @@ the corresponding line as follows: %%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n"
     printf "5. [Install CUDNN and reboot] ./${SCRIPT_NAME} cudnn && reboot\n"
 
     printf "6. [Generate ssh key and add it to github] ./${SCRIPT_NAME} sshkey\n"
+
+    printf "7. [OpenImageIO]
 }
 
 # Install basic tools
