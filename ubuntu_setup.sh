@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_NAME="ubuntu_setup.sh"
+SCRIPT_NAME="setup.sh"
 PERSONAL_WEBPAGE="http://www.tuncaydin.com"
 DISTRO="ubuntu2204"
 ARCH="x86_64"
