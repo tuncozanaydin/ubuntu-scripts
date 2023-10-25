@@ -40,7 +40,9 @@ the corresponding line as follows: %%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n"
 
     printf "6. [Generate ssh key and add it to github] ./${SCRIPT_NAME} sshkey\n"
 
-    printf "7. [OpenImageIO]
+    printf "7. [OpenImageIO] Download OpenImageIO wheel from oiio-pack\n \
+    Create storage location for libs: mkdir /storage/lib\n
+    Copy to worker, e.g.: rsync -avz --progress ~/Downloads/oiiopack.whl tunc@<ip>:/storage/lib/\n"
 }
 
 # Install basic tools
