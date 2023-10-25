@@ -63,6 +63,7 @@ install_required() {
     sudo apt-get install -y --no-install-recommends build-essential \
     ca-certificates software-properties-common openssh-server git gparted \
     python3-venv
+    echo 'export PYTHONPYCACHEPREFIX=~/.pycache' >> ~/.profile
 }
 
 # Function to install NVIDIA drivers
