@@ -37,6 +37,8 @@ the corresponding line as follows: %%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n"
     printf "4. [Install CUDA and reboot] ./${SCRIPT_NAME} cuda && reboot\n"
 
     printf "5. [Install CUDNN and reboot] ./${SCRIPT_NAME} cudnn && reboot\n"
+
+    printf "6. [Generate ssh key and add it to github] ./${SCRIPT_NAME} sshkey\n"
 }
 
 # Install basic tools
@@ -94,6 +96,15 @@ install_cudnn() {
     sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 }
 
+gen_sshkey() {
+    mkdir work
+    ssh-keygen -t ed25519 -C "tuncozanaydin@gmail.com"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+    cat ~/.ssh/id_ed25519.pub
+    printf "copy and paste the above to github"
+}
+
 # Parsing arguments
 for arg in "$@"
 do
@@ -106,6 +117,9 @@ do
             ;;
         check-nvidia)
             check_nvidia
+            ;;
+        sshkey)
+            gen_sshkey
             ;;
         cuda)
             install_cuda
