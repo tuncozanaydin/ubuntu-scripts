@@ -19,8 +19,8 @@ Minimal installation, no updates, no 3rd party drivers.\n"
     printf "0. [Enable sudo w/o password] sudo EDITOR=nano visudo, then edit \
 the corresponding line as follows: %%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n"
 
-    printf "0. [Get ${SCRIPT_NAME}] wget ${PERSONAL_WEBPAGE}/${SCRIPT_NAME} \
-&& chmod +x ${SCRIPT_NAME} \n"
+    printf "0. [Get ${SCRIPT_NAME}] git clone https://github.com/tuncozanaydin/ubuntu-scripts.git \
+&& cd ubuntu-scripts && chmod +x ${SCRIPT_NAME} \n"
 
     printf "0. [Setup spinning HD] Create ext4 partition using gparted.\n \
     Get UUID of the spinning drive using sudo blkid.\n \
