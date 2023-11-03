@@ -41,7 +41,7 @@ Then enable remote login from GUI settings.\n"
     printf "6. [Generate ssh key and add it to github] ./${SCRIPT_NAME} sshkey\n"
 
     printf "7. [OpenImageIO] Download OpenImageIO wheel from oiio-pack\n \
-    Create storage location for libs: mkdir /storage/lib\n
+    Create storage location for libs: mkdir /storage/lib\n \
     Copy to worker, e.g.: rsync -avz --progress ~/Downloads/oiiopack.whl tunc@<ip>:/storage/lib/\n"
 }
 
@@ -58,8 +58,8 @@ check_nvidia() {
 }
 
 install_required() {
-    sudo apt-get update 
-    sudo apt-get upgrade 
+    sudo apt-get update -y
+    sudo apt-get upgrade -y 
     sudo apt-get install -y --no-install-recommends build-essential \
     ca-certificates software-properties-common openssh-server git gparted \
     python3-venv
