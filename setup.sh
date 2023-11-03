@@ -13,11 +13,11 @@ tasks() {
     printf "0. Install Ubuntu 22.04 through GUI installer on the host machine.\
 Minimal installation, no updates, no 3rd party drivers.\n"
 
-    printf "0. [Enable remote ssh] sudo apt-get install openssh-server\n \
-    Then enable remote login from GUI settings.\n"
-
     printf "0. [Enable sudo w/o password] sudo EDITOR=nano visudo, then edit \
 the corresponding line as follows: %%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n"
+
+    printf "0. [Enable remote ssh] sudo apt-get install openssh-server\n \
+Then enable remote login from GUI settings.\n"
 
     printf "0. [Get ${SCRIPT_NAME}] git clone https://github.com/tuncozanaydin/ubuntu-scripts.git \
 && cd ubuntu-scripts && chmod +x ${SCRIPT_NAME} \n"
