@@ -10,6 +10,11 @@ CUDNN_VERSION="8.9.5.*"
 
 
 tasks() {
+    printf "0. [Setup spinning HD] Create ext4 partition using gparted.\n \
+    Get UUID of the spinning drive using sudo blkid.\n \
+    Create the mount point: mkdir /storage && sudo chown -R tunc:tunc /storage\n \
+    sudo nano /etc/fstab and add UUID=<uuid>	/storage	ext4	defaults	0	2\n" 
+    
     printf "0. Install Ubuntu 22.04 through GUI installer on the host machine.\
 Minimal installation, no updates, no 3rd party drivers.\n"
 
@@ -21,11 +26,6 @@ Then enable remote login from GUI settings.\n"
 
     printf "0. [Get ${SCRIPT_NAME}] git clone https://github.com/tuncozanaydin/ubuntu-scripts.git \
 && cd ubuntu-scripts && chmod +x ${SCRIPT_NAME} \n"
-
-    printf "0. [Setup spinning HD] Create ext4 partition using gparted.\n \
-    Get UUID of the spinning drive using sudo blkid.\n \
-    Create the mount point: mkdir /storage && sudo chown -R tunc:tunc /storage\n \
-    Add UUID=<uuid>	/storage	ext4	defaults	0	2\n" 
 
     printf "1. [Install required tools] ./${SCRIPT_NAME} required\n"
 
@@ -126,6 +126,9 @@ do
             ;;
         sshkey)
             gen_sshkey
+            ;;
+        required)
+            install_required
             ;;
         cuda)
             install_cuda
