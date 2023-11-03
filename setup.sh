@@ -80,8 +80,8 @@ install_cuda() {
     wget https://developer.download.nvidia.com/compute/cuda/repos/${DISTRO}/${ARCH}/cuda-keyring_${KEYRING}-1_all.deb
     sudo dpkg -i cuda-keyring_{$KEYRING}-1_all.deb
     sudo apt-get update
-    sudo apt-get install cuda-toolkit
-    sudo apt-get install nvidia-gds
+    sudo apt-get install -y cuda-toolkit
+    sudo apt-get install -y nvidia-gds
     echo 'export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}' >> ~/.profile
     echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.profile
 }
@@ -92,14 +92,6 @@ install_cudnn() {
     sudo apt-get install libcudnn8=${CUDNN_VERSION}-1+${CUDA_VERSION}
     sudo apt-get install libcudnn8-dev=${CUDNN_VERSION}-1+${CUDA_VERSION}
     sudo apt-get install libcudnn8-samples=${CUDNN_VERSION}-1+${CUDA_VERSION}
-
-
-    # Replace with the actual path to the cuDNN tar file
-    CUDNN_TAR_FILE="/path/to/cudnn-x.x-linux-x64-v8.x.x.x.tgz"
-    tar -xzvf $CUDNN_TAR_FILE
-    sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
-    sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-    sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 }
 
 gen_sshkey() {
