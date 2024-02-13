@@ -48,11 +48,6 @@ Then enable remote login from GUI settings.\n"
 # Install basic tools
 # sudo with no passwd
 # update, upgrade and install wget, git, ssh, etc.
-install_nvidia() {
-    sudo apt-get autoremove nvidia* --purge
-    sudo apt-get -y install nvidia-driver-525
-}
-
 check_nvidia() {
     nvidia-smi
 }
