@@ -84,7 +84,7 @@ install_cuda() {
 # Function to install cuDNN
 install_cudnn() {
     sudo apt-get -y install zlib1g
-    sudo apt-get -y ${CUDNN_VERSION}
+    sudo apt-get -y install ${CUDNN_VERSION}
 }
 
 gen_sshkey() {
