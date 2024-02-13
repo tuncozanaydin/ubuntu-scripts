@@ -5,8 +5,8 @@ PERSONAL_WEBPAGE="http://www.tuncaydin.com"
 DISTRO="ubuntu2204"
 ARCH="x86_64"
 KEYRING="1.1"
-CUDA_VERSION="cuda12.2"
-CUDNN_VERSION="8.9.5.*"
+CUDA_VERSION="cuda12.3"
+CUDNN_VERSION="cudnn9-cuda-12"
 
 
 tasks() {
@@ -88,10 +88,8 @@ install_cuda() {
 
 # Function to install cuDNN
 install_cudnn() {
-    sudo apt-get install zlib1g
-    sudo apt-get install libcudnn8=${CUDNN_VERSION}-1+${CUDA_VERSION}
-    sudo apt-get install libcudnn8-dev=${CUDNN_VERSION}-1+${CUDA_VERSION}
-    sudo apt-get install libcudnn8-samples=${CUDNN_VERSION}-1+${CUDA_VERSION}
+    sudo apt-get -y install zlib1g
+    sudo apt-get -y ${CUDNN_VERSION}
 }
 
 gen_sshkey() {
